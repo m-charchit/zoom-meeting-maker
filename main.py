@@ -2,7 +2,7 @@ import requests
 import jwt
 import json
 from time import time
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta , timezone
 import os
 from dotenv import load_dotenv
 
@@ -67,7 +67,7 @@ def createMeeting(start_time, cls):
     message = f"""Suman Lata is inviting you to a scheduled Zoom meeting.
 
 Topic: {result["topic"]}
-Time: {(datetime.strptime(result["start_time"],"%Y-%m-%dT%H:%M:%SZ").strftime("%I:%M %p, %d %b %G"))}
+Time: {(datetime.strptime(result["start_time"],"%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc).astimezone(tz=None).strftime("%I:%M %p, %d %b %G"))}
 
 Join Zoom Meeting
 {result["join_url"]}
@@ -79,8 +79,8 @@ Passcode: {result["password"]}"""
 
 def getMessage():
     startTime = str(datetime.now()+timedelta(days=1))[:10:]
-    a = createMeeting(startTime + "T08:30:00Z", "10")
-    b = createMeeting(startTime + "T09:30:00Z", "9")
+    a = createMeeting(startTime + "T08:30:00", "10")
+    b = createMeeting(startTime + "T09:30:00", "9")
     return a, b
 
 
