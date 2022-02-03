@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Zoom Meeting Maker</title>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static',filename='icons/zoom.ico')}}">
     <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -20,17 +23,15 @@
   </head>
   <body class="d-flex flex-column min-vh-100">
     <div id="show_popups"></div>
-    <div class="container text-center">
+    <div class="container text-center mt-2">
       <h1>Zoom Meeting Maker</h1>
       <p id="ins">Click on the Create Meeting button</p>
       <div class="spinner-border d-none" id="spinner" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
-      <div class="p-4 m-4">
         <button class="btn btn-dark" id="create">Create Meeting</button>
-      </div>
       <div id="copydiv" class="d-none">
-        <div class="p-4 m-4">
+        <div class="p-2 m-2">
           <button class="btn btn-dark m-4" id="copycls9">
             Copy 9 Class Message
           </button>
@@ -40,11 +41,11 @@
         </div>
         <div class="row">
           <div class="form-outline m-4 col">
-            <textarea class="form-control" id="cls9" rows="4"> </textarea>
+            <textarea class="form-control" id="cls9" rows="8"> </textarea>
             <label class="form-label" for="form4Example3"> Class 9 </label>
           </div>
           <div class="form-outline m-4 col">
-            <textarea class="form-control" id="cls10" rows="4"> </textarea>
+            <textarea class="form-control" id="cls10" rows="8"> </textarea>
             <label class="form-label" for="form4Example3"> Class 10 </label>
           </div>
         </div>
@@ -94,7 +95,7 @@
         © Copyright 2022 | Charchit
       </div>
     </footer>
-    <script src="{{url_for('static',filename='app.js')}}"></script>
+    <script src="{{url_for('static',filename='js/app.js')}}"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"
       type="text/javascript"
